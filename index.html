@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Sergio A. Maldonado" />
+
+
+<title>Trabajo Muestreo LOCFOUND II</title>
+
+<script src="reporte_locfund_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="reporte_locfund_files/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="reporte_locfund_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="reporte_locfund_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="reporte_locfund_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="reporte_locfund_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="reporte_locfund_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="reporte_locfund_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="reporte_locfund_files/navigation-1.1/tabsets.js"></script>
+<script src="reporte_locfund_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="reporte_locfund_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="reporte_locfund_files/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Trabajo Muestreo LOCFOUND II</h1>
+<h3 class="subtitle">Análisis y visualización de datos</h3>
+<h4 class="author">Sergio A. Maldonado</h4>
+
+</div>
+
+
+<div id="objetvio" class="section level1">
+<h1>Objetvio</h1>
+<p>Mostrar la aplicación de herramientas de ciencia de datos para la manipulación, análisis y visualización de datos.</p>
+</div>
+<div id="metodología-de-trabajo" class="section level1">
+<h1>Metodología de trabajo</h1>
+<p>El trabajo realizado consiste en estructurar e integrar información compartida por el equipo de BIM para posteriormente poder analizar y visualizar la misma.</p>
+<p>Una vez estructurados los datos compartidos, se generan ejemplos de visualización como punto de partida para ideas de herramientas completas y a medida de las necesidades.</p>
+</div>
+<div id="estructruación-de-bases-de-datos" class="section level1">
+<h1>Estructruación de bases de datos</h1>
+<p>Para generar las visualizaciones primero fue necesario estructurar integrar los datos provistos por el equipo de BIM.</p>
+<br>
+<center>
+<img src="input/img/lista_excel.png" width= 40% align = "center" />
+</center>
+<center>
+<b>Imagen 1. Lista Excel
+</h3>
+</b>
+</center>
+</b>
+</center>
+<p><br></p>
+<p>Fueron compartidos un total de ocho libros de excel, mayormente con resultados de las operaciones de inversiones en instituciones microfinancieras (MFIs).</p>
+<br>
+<center>
+<img src="input/img/hojas_excel.png" width= 75% align = "center" />
+</center>
+<center>
+<b>Imagen 2. Hojas Excel
+</h3>
+</b>
+</center>
+</b>
+</center>
+<p><br></p>
+<p>Los ocho libros de excel contenían un total de 20 hojas de cálculo. La columna “hojas_excel” en la Imagen 2. muestra el nombre de todas las hojas de cálculo y a que libro de excel corresponden.</p>
+<p>Se identificaron los las hojas de cálculo que no contenían información relacionada a los resultados.</p>
+<p>Se generó un código para poder integrar el total de las hojas de cálculo excluyendo las hojas identificadas previamente.</p>
+<p>Para la integración de los datos y la información únicamente se tomó en cuenta los datos crudos/principales y no así formulas y tablas secundarias generadas a partir de los datos crudos/principales.</p>
+<p>Una vez generada la base de datos general se procedió a realizar un control de calidad superficial verificando la consistencia y tipo de datos de cada una de las variables. En este proceso se realizaron algunas correcciones y modificaciones que permiten realizar los trabajos posteriores.</p>
+<br>
+<center>
+<img src="input/img/fechas_base.png" width= 75% align = "center" />
+</center>
+<center>
+<b>Imagen 3. Formatos Fechas
+</h3>
+</b>
+</center>
+</b>
+</center>
+<p><br></p>
+<p>Como ejemplo de modificaciones se tiene el formato de fechas que fueron importadas. La Imagen 3. muestra los diferentes formatos de fechas en la variable “Data as of” correspondiente a la fecha en el que el reporte fue generado. Paralelamente se identificó y corrigió errores como el contar con una fecha “2029-08-01” que se presenta en la 7ma fila de la Imagen 3.</p>
+<br>
+<center>
+<img src="input/img/nombres_mfis.png" width= 20% align = "center" />
+</center>
+<center>
+<b>Imagen 4. Nombres MFIs
+</h3>
+</b>
+</center>
+</b>
+</center>
+<p><br></p>
+<p>Un segundo ejemplo de modificaciones se da con la variedad de nombres correspondientes a una institución microfinanciera. Como se observa en la Imagen 4. se cuentan con variaciones de nombres para una misma institución.</p>
+<p>Si bien estas variaciones pueden tener algún propósito, con el fin de mantener consistencia en la base general, se modificaron los nombres para contar con un mismo nombre para cada institución.</p>
+<p>Finalmente se cuenta con una base de datos general que cuenta con 24 variables y 740 filas, contando con información de reportes desde mayo del 2015 hasta agosto del 2020.</p>
+<p>Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se lo realiza completamente a través de código, lo cual permite replicar el ejercisio las veces que sea necesario con los documentos base que se desee, pudiendo así incluir, reducir o modificar los documentos base.</p>
+</div>
+<div id="ejemplos-de-visualización-y-herramientas-de-análisis" class="section level1">
+<h1>Ejemplos de visualización y herramientas de análisis</h1>
+<p>El objetivo de los ejemplos que se muestran a continuación es poder tener una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a paneles de control donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+---
+title: "Trabajo Muestreo LOCFOUND II"
+subtitle: "Análisis y visualización de datos"
+author: "Sergio A. Maldonado"
+output: 
+  html_document: 
+    highlight: kate
+    theme: cosmo
+    self_contained: false
+    fig_caption: true
+    toc: TRUE
+    toc_depth: 5
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Objetvio
+
+Mostrar la aplicación de herramientas de ciencia de datos para la manipulación, análisis y visualización de datos.
+
+# Metodología de trabajo
+
+El trabajo realizado consiste en estructurar e integrar información compartida por el equipo de BIM para posteriormente poder analizar y visualizar la misma.
+
+Una vez estructurados los datos compartidos, se generan ejemplos de visualización como punto de partida para ideas de herramientas completas y a medida de las necesidades.
+
+# Estructruación de bases de datos
+
+Para generar las visualizaciones primero fue necesario estructurar integrar los datos provistos por el equipo de BIM. 
+
+<br>
+<center><img src="input/img/lista_excel.png" width= 40% align = "center" /></center>
+<center><b>Imagen 1. Lista Excel</h3></b></center></b></center>
+<br>
+
+Fueron compartidos un total de ocho libros de excel, mayormente con resultados de las operaciones de inversiones en instituciones microfinancieras (MFIs).
+
+<br>
+<center><img src="input/img/hojas_excel.png" width= 75% align = "center" /></center>
+<center><b>Imagen 2. Hojas Excel</h3></b></center></b></center>
+<br>
+
+Los ocho libros de excel contenían un total de 20 hojas de cálculo. La columna "hojas_excel" en la Imagen 2. muestra el nombre de todas las hojas de cálculo y a que libro de excel corresponden.
+
+Se identificaron los las hojas de cálculo que no contenían información relacionada a los resultados. 
+
+Se generó un código para poder integrar el total de las hojas de cálculo excluyendo las hojas identificadas previamente.
+
+Para la integración de los datos y la información únicamente se tomó en cuenta los datos crudos/principales y no así formulas y tablas secundarias generadas a partir de los datos crudos/principales.
+
+Una vez generada la base de datos general se procedió a realizar un control de calidad superficial verificando la consistencia y tipo de datos de cada una de las variables. En este proceso se realizaron algunas correcciones y modificaciones que permiten realizar los trabajos posteriores.
+
+<br>
+<center><img src="input/img/fechas_base.png" width= 75% align = "center" /></center>
+<center><b>Imagen 3. Formatos Fechas</h3></b></center></b></center>
+<br>
+
+Como ejemplo de modificaciones se tiene el formato de fechas que fueron importadas. La Imagen 3. muestra los diferentes formatos de fechas en la variable "Data as of" correspondiente a la fecha en el que el reporte fue generado. Paralelamente se identificó y corrigió errores como el contar con una fecha "2029-08-01" que se presenta en la 7ma fila de la Imagen 3.
+
+<br>
+<center><img src="input/img/nombres_mfis.png" width= 20% align = "center" /></center>
+<center><b>Imagen 4. Nombres MFIs</h3></b></center></b></center>
+<br>
+
+Un segundo ejemplo de modificaciones se da con la variedad de nombres correspondientes a una institución microfinanciera. Como se observa en la Imagen 4. se cuentan con variaciones de nombres para una misma institución.
+
+Si bien estas variaciones pueden tener algún propósito, con el fin de mantener consistencia en la base general, se modificaron los nombres para contar con un mismo nombre para cada institución.
+
+Finalmente se cuenta con una base de datos general que cuenta con 24 variables y 740 filas, contando con información de reportes desde mayo del 2015 hasta agosto del 2020.
+
+Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se lo realiza completamente a través de código, lo cual permite replicar el ejercisio las veces que sea necesario con los documentos base que se desee, pudiendo así incluir, reducir o modificar los documentos base.
+
+
+# Ejemplos de visualización y herramientas de análisis
+
+El objetivo de los ejemplos que se muestran a continuación es poder tener una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a paneles de control donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.
+
+
+
+
+

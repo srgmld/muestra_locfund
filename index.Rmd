@@ -1,6 +1,6 @@
 ---
-title: "Trabajo Muestreo LOCFOUND II"
-subtitle: "Análisis y visualización de datos"
+title: "Trabajo Muestreo LOCFUND II"
+subtitle: "Herramientas de ciencia de datos para manejo, análisis y visualización de datos"
 author: "Sergio A. Maldonado"
 output: 
   html_document: 

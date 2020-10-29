@@ -1,5 +1,5 @@
 ---
-title: "Trabajo Muestreo LOCFUND II"
+title: "Trabajo Muestra LOCFUND II"
 subtitle: "Herramientas de ciencia de datos para manejo, análisis y visualización de datos"
 author: "Sergio A. Maldonado"
 output: 
@@ -14,7 +14,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+library(downloadthis)
 ```
 
 
@@ -79,7 +80,28 @@ Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se
 
 El objetivo de los ejemplos que se muestran a continuación es poder tener una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a paneles de control donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.
 
+## Tabla general
 
+Como primer herramienta, se presenta una tabla interactiva que contiene los datos integrados:
 
+<iframe frameBorder="0" src="output/social_reactable.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+
+```{r warning=FALSE}
+
+rio::import("output/data_set/social_quarterly.xlsx") %>%
+  download_this(
+    output_name = "base_locfund",
+    output_extension = ".csv",
+    button_label = "Descargar datos como CSV",
+    button_type = "primary",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+<br>
+Al presionar el botón de desacarga es posible descargar los la base de datos consolidada en formato CSV.
+
+<br><br><br><br>
 
 

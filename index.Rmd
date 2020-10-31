@@ -81,7 +81,7 @@ Finalmente se cuenta con una base de datos general que cuenta con 24 variables y
 Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se lo realiza completamente a través de código, lo cual permite replicar el ejercicio las veces que sea necesario con los documentos originales que se desee, pudiendo así incluir, reducir o modificar los documentos originales.
 
 
-# Ejemplos de visualización y herramientas de análisis
+# Visualización datos general
 
 El objetivo de los ejemplos que se muestran a continuación es presentar una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a herramientas más elaboradas donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.
 

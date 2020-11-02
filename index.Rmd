@@ -1,0 +1,232 @@
+---
+title: "Trabajo Muestra LOCFUND II"
+subtitle: "Herramientas de ciencia de datos para manejo, análisis y visualización de datos"
+author: "Sergio A. Maldonado"
+output: 
+  html_document: 
+    highlight: kate
+    theme: cosmo
+    self_contained: false
+    fig_caption: true
+    toc: TRUE
+    toc_depth: 5
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(downloadthis)
+```
+
+
+# Objetvio
+
+Mostrar la aplicación de herramientas de ciencia de datos para la manipulación, análisis y visualización de datos.
+
+# Metodología de trabajo
+
+El trabajo realizado consiste en estructurar e integrar información compartida por el equipo de BIM para posteriormente poder analizar y visualizar la misma.
+
+Una vez estructurados los datos compartidos, se generan ejemplos de visualización como punto de partida para ideas de herramientas completas y a medida de las necesidades.
+
+El trabajo se realizó con información de datos sociales dentro de las operaciones de Locfund II. A partir de esta información se desarrolla un condigo que implementa herramientas y procedimientos que permiten automatizar el trabajo en todas las diferentes etapas: Importación, estructuración, limpieza, integración, visualización, análisis y posteriores modelos.
+
+Estos procedimientos pueden ser implementados y adecuados a diferentes sectores, según sus necesidades y alcances.
+
+# Estructruación de bases de datos
+
+Para generar las visualizaciones primero fue necesario estructurar integrar los datos provistos por el equipo de BIM. 
+
+<br>
+<center><img src="input/img/lista_excel.png" width= 40% align = "center" /></center>
+<center><b>Imagen 1. Lista Excel</h3></b></center></b></center>
+<br>
+
+Fueron compartidos un total de ocho libros de Excel, mayormente con resultados de las operaciones de inversiones en instituciones microfinancieras (MFIs).
+
+<br>
+<center><img src="input/img/hojas_excel.png" width= 75% align = "center" /></center>
+<center><b>Imagen 2. Hojas Excel</h3></b></center></b></center>
+<br>
+
+Los ocho libros de Excel contenían un total de 20 hojas de cálculo. La columna "hojas_excel" en la Imagen 2 muestra el nombre de todas las hojas de cálculo y a que libro de Excel corresponden.
+
+Se identificaron las hojas de cálculo que no contenían información relacionada a los resultados. 
+
+Se generó un código para poder integrar el total de las hojas de cálculo, excluyendo las hojas identificadas previamente.
+
+Para la integración de los datos y la información únicamente se tomó en cuenta los datos crudos/principales y no así fórmulas y tablas secundarias generadas a partir de los datos crudos/principales.
+
+Una vez generada la base de datos general se procedió a realizar un control de calidad superficial verificando la consistencia y tipo de datos de cada una de las variables. En este proceso se realizaron algunas correcciones y modificaciones que permiten realizar los trabajos posteriores.
+
+<br>
+<center><img src="input/img/fechas_base.png" width= 75% align = "center" /></center>
+<center><b>Imagen 3. Formatos Fechas</h3></b></center></b></center>
+<br>
+
+Como ejemplo de modificaciones se tiene el formato de fechas que fueron importadas. La Imagen 3 muestra los diferentes formatos de fechas en la variable "Data as of" correspondiente a la fecha en el que el reporte fue generado. Paralelamente se identificó y corrigió errores como el contar con una fecha "2029-08-01" que se presenta en la 7ma fila de la Imagen 3.
+
+<br>
+<center><img src="input/img/nombres_mfis.png" width= 20% align = "center" /></center>
+<center><b>Imagen 4. Nombres MFIs</h3></b></center></b></center>
+<br>
+
+Un segundo ejemplo de modificaciones se da con la variedad de nombres correspondientes a una institución microfinanciera. Como se observa en la Imagen 4. se cuentan con variaciones de nombres para una misma institución.
+
+Si bien estas variaciones pueden tener algún propósito, con el fin de mantener consistencia en la base general, se modificaron los nombres para contar con un mismo nombre para cada institución.
+
+<br>
+<center><img src="input/img/vars_base.png" width= 100% align = "center" /></center>
+<center><b>Imagen 5. Variables Base</h3></b></center></b></center>
+<br>
+
+Finalmente se cuenta con una base de datos general que cuenta con 24 variables y 740 filas, contando con información de reportes desde mayo del 2015 hasta agosto del 2020. De estas 24 variables únicamente las variables "hoja" y "libro_excel" son agenas a los datos originales. Estas dos variables sirven como referencia e indican la hoja de Excel y el libro de Excel de donde viene la información de cada fila. 
+
+Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se lo realiza completamente a través de código, lo cual permite replicar el ejercicio las veces que sea necesario con los documentos originales que se desee, pudiendo así incluir, reducir o modificar los documentos originales.
+
+
+# Visualización datos general
+
+El objetivo de los ejemplos que se muestran a continuación es presentar una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a herramientas más elaboradas donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.
+
+## Mapa de resumen
+
+El siguiente mapa presenta los paises donde se cuenta con operaciones. Cada país muestra información sobre el primer y último reporte generado.
+
+<iframe frameBorder="0" src="output/graphs/summary_hcmap.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+
+Se debe tomar en cuenta que la fecha inicial y final corresponden a fechas de presentación de reporte y no así al trimestre. 
+
+## Tabla general
+
+A continuación se presenta una tabla interactiva que contiene el total de los datos integrados en la base de datos final:
+
+<iframe frameBorder="0" src="output/social_reactable.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+<center>
+```{r warning=FALSE}
+
+rio::import("output/data_set/social_quarterly.xlsx") %>%
+  download_this(
+    output_name = "base_locfund",
+    output_extension = ".csv",
+    button_label = "Descargar datos como CSV",
+    button_type = "primary",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+</center>
+
+<br>
+Al presionar el botón de desacarga es posible descargar los la base de datos consolidada en formato CSV.
+
+<br><br><br><br>
+
+
+
+## Línea de tiempo Portafolio por país
+
+A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada país. Estéticamente el gráfico no es ideal y esto se debe a que todos los paises están activados, sin embargo es posible activar y desactibar paises presionando en los mismos en la leyenda.
+
+Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor del portafolio y otra información correspondiente a la fecha del reporte.
+
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hbr_line_countries.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+
+
+## Línea de tiempo Portafolio Bolivia
+
+A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada entidad en Bolivia. Al pasar el cursor por las lineas se puede ver la fecha del reporte y el valor del portafolio.
+
+Presionando en las instituciones en la leyenda inferior izquierda es posible activar y desactivar las instituciones desdadas para enfocar la visualización y análisis.
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hbr_line_bolivia.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+El anterior ejemplo muestra únicamente información de Bolivia, sin embargo es posible desarrollar herramientas para poder elegir los paises de los cuales se quiere transmitir información.
+
+## Barras "drilldown"
+
+El siguiente gráfico contiene datos extraidos del reporte correspondiente al último trimestre. Al pasar el cursor por las barras se puede visualizar información resumida de cada país. Los porcentajes corresponden a promedios ponderados en función a la cantidad de clientes por cada operación.
+
+Al presionar sobre alguna de las barras, el gráfico se expande para poder visualizar las intituciones que componen el país y la información de cada una de estas.
+
+<br>
+<iframe frameBorder="0" src="output/graphs/bar_drill_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+
+Como posibles implementaciones y desarrollos es posible habilitar la selección de fechas de reportes  a ser visualizados.
+
+
+# Indicadores Sociales
+
+
+## Indicador % femenino Bolivia
+
+El siguiente es un gráfico de barras compuestas que muestra la proporción y porcentaje de clientes femeninos en los diferentes reportes en el tiempo.
+
+Al pasar el cursor por las barras la información de cada reporte es visualizada.
+
+Tomar en cuenta que la información transmitida corresponde a Bolivia.
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hbr_stacked_fem_bol.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+Como alternativas de desarrollo se pueden elaborar herramientas en las que puedas elegir el país que se quiera visualizar.
+
+## Indicador % rural Ecuador
+
+Al igual que el anterior gráfico, el siguiente es un gráfico de barras compuestas que muestr la proporción y porcentaje de clientes rurales en los diferentes reportes de tiempo.
+
+Al pasar el cursor por las barras se visualiza la información correspondiente a cada reporte.
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hbr_stacked_rur_ecu.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+## Pirámide de proporciones en género
+
+El siguiente gráfico muestra proporciones de clientes femeninos vs masculinos por cada institución en relación al valor del portafolio y la cantidad de clientes. El eje vertical muestra el valor correspondiente al portafolio y el eje horizontal la cantidad de clientes dividido en genero femenino y masculino.
+
+Al pasar el cursor por las barras se visualiza la información correspondiente a la institución indicando a que país corresponde.
+
+El gráfico corresponde al último reporte "Datos Sociales Quarterly Sep 20.xlsx".
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hcpyram_female_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+Como herramientas complementarias se puede poner la opción para definir el periodo de visualización, ya sea una fecha específica o el trimestre correspondiente a una gestión. 
+
+## Pirámide de proporciones por área
+
+Al igual que el anterior gráfico el siguiente gráfico muestra proporciones de clientes rurales vs urbanos por cada institución en relación al valor del portafolio y la cantidad de clientes. El eje vertical muestra el valor correspondiente al portafolio y el eje horizontal la cantidad de clientes dividido en áreas rural y urbana.
+
+Al pasar el cursor por las barras se visualiza la información correspondiente a la institución indicando a que país corresponde.
+
+El gráfico corresponde al último reporte "Datos Sociales Quarterly Sep 20.xlsx".
+
+<br>
+<iframe frameBorder="0" src="output/graphs/hcpyram_rural_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+## Gráfico general % femenino vs % rural
+
+En el siguiente gráfico cada burbuja representa una institución del último reporte con nombre "Datos Sociales Quarterly Sep 20.xlsx". Los ejes vertical y horizontal muestran la relación entre el porcentaje de clientes femeninos y el porcentaje de clientes en el área rural por cada institución. El tamaño de cada burbuja representa la cantidad de clientes correspondiente a la institución.
+
+Al igual que en los demás gráficos, al pasar el cursor por cada burbuja se muestra la información correspondiente a la institución. De la misma manera, es posible activar y desactivar los paises presionando en los mismos en la leyenda inferior.
+
+<br>
+<iframe frameBorder="0" src="output/graphs/scatter_rural_fem_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
+<br>
+
+Al igual que en los gráficos anteriores, es posible generar mayor desarrollo para, por ejemplo, poder definir el periodo de tiempo para visualización del gráfico.
+

@@ -247,13 +247,26 @@ Al igual que en los gráficos anteriores, es posible generar mayor desarrollo pa
 
 # Conclusión
 
-Este reporte es el resultado de la implementación de herramientas y procesos de ciencia de datos. El trabajo descrito y transmitido en este reporte se realiza a través de un código en lenguaje de programación R.
+Este reporte es un producto de la implementación de herramientas y procesos de ciencia de datos. El trabajo descrito, transmitido y presentado en este reporte se genera a través de un código en lenguaje de programación R.
 
-Este tipo de herramientas y procedimientos ofrecen una variedad de beneficios en todo el proceso de trabajo con datos, desde la automatización en la manipulación y manejo general de datos hasta el desarrollo de diversas herramientas y alternativas de visualización y comunicación de datos.
+La aplicación de herramientas y procedimientos de ciencia de datos ofrecen una variedad de beneficios en todo el proceso de trabajo con datos, desde la automatización en la manipulación y manejo general de datos, el desarrollo de diversas herramientas y alternativas de visualización y comunicación, hasta la aplicación de modelos y herramientas de "machine learning" para la implementación de análisis predictivos.
 
-De esta manera es posible, no sólo hacer mas eficientes estos procesos, sino también agregar el valor a la información facilitando el análisis y mejorando la transmisión de resultados.
+Ciencia de datos no sólo permite hacer mas eficientes estos procesos, sino también agregar el valor a la información, facilitando el análisis y mejorando la transmisión de comportamientos y resultados.
 
-Cada área y sector es único y diferente, por lo tanto, la manera y el procedimiento de trabajar con datos debe ser desarrollada e implementada de manera específica, cumpliendo con los requerimientos únicos que se puedan tener.
+Cada área y sector es único y diferente, por lo tanto, la manera y el procedimiento de trabajar con datos debe ser desarrollada e implementada de manera específica, adecuandose a las características y cumpliendo con los requerimientos únicos de cada área.
+
+En este ejemplo en particular, se trabajó con información de datos sociales correspondientes a diferentes inversiones en instituciones en latinoamerica. Después de generar una base de datos única se generaron ejemplos de visualización que permiten tener las primeras percepciones o "insights" sobre los datos y el comportamiento de las instituciones.
+
+La ciencia de datos ofrece alternativas para profundizar el análisis de los resultados, objetivos e impacto que se busca. Por ejemplo, se podría analizar el significado del incremento en el porcentaje de clientes mujeres y del sector rural, identificando y sugiriendo nuevas variables e indicadores que midan el impacto en el desarrollo de la economía y el bienestar de la sociedad.
+
+La ciencia de datos permite integrar toda la información para poder implementar modelos y herramientas de machine learning para predecir el impacto y resultados que nuevas decisiones y proyectos puedan generar. Simplemente es cuestión de tener acceso o poder generar los datos e información correcta e implementar las herramientas y conocimiento adecuado.
+
+
+
+
+
+
+
 
 
 

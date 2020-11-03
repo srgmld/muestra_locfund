@@ -1,6 +1,6 @@
 ---
-title: "Trabajo Muestra LOCFUND II"
-subtitle: "Herramientas de ciencia de datos para manejo, análisis y visualización de datos"
+title: "Muestra LOCFUND II"
+# subtitle: "Herramientas de ciencia de datos para manejo, análisis y visualización de datos"
 author: "Sergio A. Maldonado"
 output: 
   html_document: 
@@ -21,22 +21,22 @@ library(downloadthis)
 
 # Objetvio
 
-Mostrar la aplicación de herramientas de ciencia de datos para la manipulación, análisis y visualización de datos.
+Mostrar la aplicación de herramientas de ciencia de datos para el manejo, análisis y visualización de datos.
 
 # Metodología de trabajo
 
-El trabajo realizado consiste en estructurar e integrar información compartida por el equipo de BIM para posteriormente poder analizar y visualizar la misma.
+El trabajo realizado consiste en la estructuración e integración de información compartida por el equipo de BIM para después poder analizar y visualizarla.
 
-Una vez estructurados los datos compartidos, se generan ejemplos de visualización como punto de partida para ideas de herramientas completas y a medida de las necesidades.
+Una vez estructurados los datos compartidos, se generan muestras de visualización como un ejemplo básico de las diversas alternativas y herramientas.
 
-El trabajo se realizó con información de datos sociales dentro de las operaciones de Locfund II. A partir de esta información se desarrolla un condigo que implementa herramientas y procedimientos que permiten automatizar el trabajo en todas las diferentes etapas: Importación, estructuración, limpieza, integración, visualización, análisis y posteriores modelos.
+Todos los trabajos se realizaron con información de datos sociales dentro de las operaciones de Locfund II. A partir de esta información se desarrolló un código implementando herramientas y procedimientos que permiten automatizar el trabajo las diferentes etapas: Importación, estructuración, limpieza, integración, visualización, análisis y posteriores modelos.
 
-Estos procedimientos pueden ser implementados y adecuados a diferentes sectores, según sus necesidades y alcances.
+Cada uno de estos procedimientos pueden ser desarrollados, adecuados e implementados en diferentes áreas y sectores, según las necesidades y alcances de cada uno.
 
 # Estructruación de bases de datos
 
-Para generar las visualizaciones primero fue necesario estructurar integrar los datos provistos por el equipo de BIM. 
-
+Como primer paso, antes de poder generar algún tipo de visualización o análisis, fue necesario estructurar e integrar los datos provistos por el equipo de BI, generando una base de datos única. 
+## Datos compartidos
 <br>
 <center><img src="input/img/lista_excel.png" width= 40% align = "center" /></center>
 <center><b>Imagen 1. Lista Excel</h3></b></center></b></center>
@@ -49,49 +49,60 @@ Fueron compartidos un total de ocho libros de Excel, mayormente con resultados d
 <center><b>Imagen 2. Hojas Excel</h3></b></center></b></center>
 <br>
 
-Los ocho libros de Excel contenían un total de 20 hojas de cálculo. La columna "hojas_excel" en la Imagen 2 muestra el nombre de todas las hojas de cálculo y a que libro de Excel corresponden.
+Los ocho libros de Excel contenían un total de 20 hojas de cálculo. La columna "hojas_excel" en la Imagen 2 muestra el nombre de todas las hojas de cálculo y a el libro de Excel al que corresponde.
 
-Se identificaron las hojas de cálculo que no contenían información relacionada a los resultados. 
+## Revisión y estructuración 
 
-Se generó un código para poder integrar el total de las hojas de cálculo, excluyendo las hojas identificadas previamente.
+Al realizar una revisión del contenido de los datos, se identificaron hojas de cálculo que no contenían información relacionada a los datos sociales. El código generado integra el total de las hojas de cálculo excluyendo las hojas identificadas previamente.
 
-Para la integración de los datos y la información únicamente se tomó en cuenta los datos crudos/principales y no así fórmulas y tablas secundarias generadas a partir de los datos crudos/principales.
+Para la integración de los datos y la información, únicamente se tomó en cuenta los datos crudos/principales. Esto quiere decir que se exluyeron fórmulas y tablas secundarias generadas a partir de los datos crudos/principales.
 
-Una vez generada la base de datos general se procedió a realizar un control de calidad superficial verificando la consistencia y tipo de datos de cada una de las variables. En este proceso se realizaron algunas correcciones y modificaciones que permiten realizar los trabajos posteriores.
+
+## Revisión del contenido 
+
+Una vez generada la base de datos única se procedió a realizar un control de calidad general. En especial se busca verificar la consistencia y tipo de datos de cada una de las variables/columnas evitando contar con errores que afecten la visualización y análisis posterior. 
+
+En este proceso se realizaron algunas correcciones y modificaciones:
 
 <br>
 <center><img src="input/img/fechas_base.png" width= 75% align = "center" /></center>
 <center><b>Imagen 3. Formatos Fechas</h3></b></center></b></center>
 <br>
 
-Como ejemplo de modificaciones se tiene el formato de fechas que fueron importadas. La Imagen 3 muestra los diferentes formatos de fechas en la variable "Data as of" correspondiente a la fecha en el que el reporte fue generado. Paralelamente se identificó y corrigió errores como el contar con una fecha "2029-08-01" que se presenta en la 7ma fila de la Imagen 3.
+La Imagen 3 muestra los diferentes formatos de fechas importados para la variable "Data as of", correspondiente a la fecha en el que el reporte fue generado. Las fechas que contenían un formato erróneo fueron modificadas para ser tener un formato único y consistente.
+
+Paralelamente se identificaron y corrigieron errores de dedo como por ejemplo la fecha "2029-08-01" que se presenta en la 7ma fila de la Imagen 3.
 
 <br>
 <center><img src="input/img/nombres_mfis.png" width= 20% align = "center" /></center>
 <center><b>Imagen 4. Nombres MFIs</h3></b></center></b></center>
 <br>
 
-Un segundo ejemplo de modificaciones se da con la variedad de nombres correspondientes a una institución microfinanciera. Como se observa en la Imagen 4. se cuentan con variaciones de nombres para una misma institución.
+Un segundo ejemplo de modificaciones es la variedad de nombres correspondientes a una misma institución microfinanciera. En la Imagen 4 se puede observar algunos ejemplos de nombres diversos que hacen referencia a una misma institución.
 
-Si bien estas variaciones pueden tener algún propósito, con el fin de mantener consistencia en la base general, se modificaron los nombres para contar con un mismo nombre para cada institución.
+Si bien estas variaciones pueden tener algún propósito, se modificaron los nombres con el fin de mantener consistencia en la base única,
 
 <br>
 <center><img src="input/img/vars_base.png" width= 100% align = "center" /></center>
 <center><b>Imagen 5. Variables Base</h3></b></center></b></center>
 <br>
 
-Finalmente se cuenta con una base de datos general que cuenta con 24 variables y 740 filas, contando con información de reportes desde mayo del 2015 hasta agosto del 2020. De estas 24 variables únicamente las variables "hoja" y "libro_excel" son agenas a los datos originales. Estas dos variables sirven como referencia e indican la hoja de Excel y el libro de Excel de donde viene la información de cada fila. 
+## Base de datos única
 
-Se debe tomar en cuenta que el proceso de estructuración y limpieza de datos se lo realiza completamente a través de código, lo cual permite replicar el ejercicio las veces que sea necesario con los documentos originales que se desee, pudiendo así incluir, reducir o modificar los documentos originales.
+Finalmente se cuenta con una base de datos única general que está compuesta por 24 variables (columnas) y 740 filas (observaciones). De las 24 variables únicamente las variables "hoja" y "libro_excel" son ajenas a los datos originales. Estas dos variables fueron generadas como referencia a la hoja y libro de Excel de donde viene la información de cada fila. 
+
+La base de datos general representa reportes que fueron generados a partir de mayo del 2015 hasta agosto del 2020 con información de cada institución financiera.
+
+Se debe tomar en cuenta que el proceso de estructuración, limpieza e integración de datos se lo realiza completamente a través del código. Esto permite poder replicar el ejercicio las veces que sea necesario con los archivos y datos originales que se desee, pudiendo así incluir, reducir o modificar los documentos originales.
 
 
 # Visualización datos general
 
-El objetivo de los ejemplos que se muestran a continuación es presentar una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a herramientas más elaboradas donde se puede incluir la selección y manejo de variables y rangos de visualización y análisis.
+El objetivo de los ejemplos que se muestran a continuación es presentar una idea de las herramientas que se pueden generar para analizar y comunicar datos e información. Estos ejemplos simplemente son el punto de partida a herramientas más elaboradas, que permiten incrementar la interacción del usuario en la selección y manejo de variables y rangos de visualización y análisis.
 
 ## Mapa de resumen
 
-El siguiente mapa presenta los paises donde se cuenta con operaciones. Cada país muestra información sobre el primer y último reporte generado.
+El siguiente mapa presenta los países donde se cuenta con operaciones. Cada país muestra información sobre el primer y último reporte generado.
 
 <iframe frameBorder="0" src="output/graphs/summary_hcmap.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
 
@@ -99,7 +110,7 @@ Se debe tomar en cuenta que la fecha inicial y final corresponden a fechas de pr
 
 ## Tabla general
 
-A continuación se presenta una tabla interactiva que contiene el total de los datos integrados en la base de datos final:
+La siguiente tabla es una tabla interactiva que contiene el total de los datos integrados en la base de datos final:
 
 <iframe frameBorder="0" src="output/social_reactable.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
 <br>
@@ -128,9 +139,9 @@ Al presionar el botón de desacarga es posible descargar los la base de datos co
 
 ## Línea de tiempo Portafolio por país
 
-A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada país. Estéticamente el gráfico no es ideal y esto se debe a que todos los paises están activados, sin embargo es posible activar y desactibar paises presionando en los mismos en la leyenda.
+A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada país. Estéticamente el gráfico no es ideal y esto se debe a que todos los países están activados, sin embargo el gráfico permite activar y desactivar países presionando sobre estos en la leyenda.
 
-Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor del portafolio y otra información correspondiente a la fecha del reporte.
+Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor del portafolio y otra información correspondiente a ete reporte reporte.
 
 
 <br>
@@ -141,28 +152,30 @@ Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor de
 
 ## Línea de tiempo Portafolio Bolivia
 
-A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada entidad en Bolivia. Al pasar el cursor por las lineas se puede ver la fecha del reporte y el valor del portafolio.
+A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada institución en Bolivia. Al pasar el cursor por las lineas se puede ver la fecha del reporte y el valor del portafolio.
 
-Presionando en las instituciones en la leyenda inferior izquierda es posible activar y desactivar las instituciones desdadas para enfocar la visualización y análisis.
+Al igual que en el gráfico anterior,  es posible activar y desactivar las instituciones desdadas presionando en las instituciones en la leyenda inferior izquierda.
 
 <br>
 <iframe frameBorder="0" src="output/graphs/hbr_line_bolivia.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
 <br>
 
-El anterior ejemplo muestra únicamente información de Bolivia, sin embargo es posible desarrollar herramientas para poder elegir los paises de los cuales se quiere transmitir información.
+El anterior ejemplo muestra únicamente información de Bolivia, sin embargo es posible desarrollar herramientas para poder elegir los países de los cuales se quiere transmitir y visualizar información.
 
 ## Barras "drilldown"
 
-El siguiente gráfico contiene datos extraidos del reporte correspondiente al último trimestre. Al pasar el cursor por las barras se puede visualizar información resumida de cada país. Los porcentajes corresponden a promedios ponderados en función a la cantidad de clientes por cada operación.
+El siguiente gráfico contiene datos extraidos del reporte correspondiente al último trimestre "Datos Sociales Quarterly Sep 20.xlsx". 
 
-Al presionar sobre alguna de las barras, el gráfico se expande para poder visualizar las intituciones que componen el país y la información de cada una de estas.
+Al pasar el cursor por las barras se puede visualizar información resumida de cada país. Los porcentajes corresponden a promedios ponderados en función a la cantidad de clientes por cada operación.
+
+Al presionar sobre alguna de las barras, el gráfico se expande para poder visualizar las instituciones que componen el país y la información de cada institución.
 
 <br>
 <iframe frameBorder="0" src="output/graphs/bar_drill_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
 <br>
 
 
-Como posibles implementaciones y desarrollos es posible habilitar la selección de fechas de reportes  a ser visualizados.
+Como posibles implementaciones y desarrollos es posible habilitar la selección de fechas de reportes a ser visualizados.
 
 
 # Indicadores Sociales
@@ -170,7 +183,7 @@ Como posibles implementaciones y desarrollos es posible habilitar la selección 
 
 ## Indicador % femenino Bolivia
 
-El siguiente es un gráfico de barras compuestas que muestra la proporción y porcentaje de clientes femeninos en los diferentes reportes en el tiempo.
+El siguiente es un gráfico de barras compuestas que muestra la proporción y porcentaje de clientes de sexo femenino en los diferentes reportes en el tiempo.
 
 Al pasar el cursor por las barras la información de cada reporte es visualizada.
 
@@ -184,7 +197,7 @@ Como alternativas de desarrollo se pueden elaborar herramientas en las que pueda
 
 ## Indicador % rural Ecuador
 
-Al igual que el anterior gráfico, el siguiente es un gráfico de barras compuestas que muestr la proporción y porcentaje de clientes rurales en los diferentes reportes de tiempo.
+Al igual que el anterior gráfico, el siguiente es un gráfico de barras compuestas. En este ejemplo se muestra la proporción y porcentaje de clientes rurales en los diferentes reportes de tiempo.
 
 Al pasar el cursor por las barras se visualiza la información correspondiente a cada reporte.
 
@@ -194,7 +207,9 @@ Al pasar el cursor por las barras se visualiza la información correspondiente a
 
 ## Pirámide de proporciones en género
 
-El siguiente gráfico muestra proporciones de clientes femeninos vs masculinos por cada institución en relación al valor del portafolio y la cantidad de clientes. El eje vertical muestra el valor correspondiente al portafolio y el eje horizontal la cantidad de clientes dividido en genero femenino y masculino.
+El siguiente gráfico muestra proporciones de clientes femeninos vs masculinos por cada institución en relación al valor del portafolio y la cantidad de clientes. 
+
+El eje vertical muestra el valor correspondiente al portafolio y el eje horizontal la cantidad de clientes dividido en genero femenino y masculino.
 
 Al pasar el cursor por las barras se visualiza la información correspondiente a la institución indicando a que país corresponde.
 
@@ -220,13 +235,25 @@ El gráfico corresponde al último reporte "Datos Sociales Quarterly Sep 20.xlsx
 
 ## Gráfico general % femenino vs % rural
 
-En el siguiente gráfico cada burbuja representa una institución del último reporte con nombre "Datos Sociales Quarterly Sep 20.xlsx". Los ejes vertical y horizontal muestran la relación entre el porcentaje de clientes femeninos y el porcentaje de clientes en el área rural por cada institución. El tamaño de cada burbuja representa la cantidad de clientes correspondiente a la institución.
+En el siguiente gráfico cada burbuja representa una institución del último reporte "Datos Sociales Quarterly Sep 20.xlsx". Los ejes vertical y horizontal muestran la relación entre el porcentaje de clientes femeninos y el porcentaje de clientes en el área rural por cada institución. El tamaño de cada burbuja representa la cantidad de clientes correspondiente a la institución.
 
-Al igual que en los demás gráficos, al pasar el cursor por cada burbuja se muestra la información correspondiente a la institución. De la misma manera, es posible activar y desactivar los paises presionando en los mismos en la leyenda inferior.
+Al igual que en los demás gráficos, al pasar el cursor por cada burbuja se muestra la información correspondiente a la institución. De la misma manera, es posible activar y desactivar los países presionando en los mismos en la leyenda inferior.
 
 <br>
 <iframe frameBorder="0" src="output/graphs/scatter_rural_fem_clients.html" width="100%" height=800 allowtransparency="true" allowfullscreen></iframe>
 <br>
 
 Al igual que en los gráficos anteriores, es posible generar mayor desarrollo para, por ejemplo, poder definir el periodo de tiempo para visualización del gráfico.
+
+# Conclusión
+
+Este reporte es el resultado de la implementación de herramientas y procesos de ciencia de datos. El trabajo descrito y transmitido en este reporte se realiza a través de un código en lenguaje de programación R.
+
+Este tipo de herramientas y procedimientos ofrecen una variedad de beneficios en todo el proceso de trabajo con datos, desde la automatización en la manipulación y manejo general de datos hasta el desarrollo de diversas herramientas y alternativas de visualización y comunicación de datos.
+
+De esta manera es posible, no sólo hacer mas eficientes estos procesos, sino también agregar el valor a la información facilitando el análisis y mejorando la transmisión de resultados.
+
+Cada área y sector es único y diferente, por lo tanto, la manera y el procedimiento de trabajar con datos debe ser desarrollada e implementada de manera específica, cumpliendo con los requerimientos únicos que se puedan tener.
+
+
 

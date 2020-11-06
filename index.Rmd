@@ -19,7 +19,7 @@ library(downloadthis)
 ```
 
 
-# Objetvio
+# Objetivo
 
 Mostrar la aplicación de herramientas de ciencia de datos para el manejo, análisis y visualización de datos.
 
@@ -33,10 +33,12 @@ Todos los trabajos se realizaron con información de datos sociales dentro de la
 
 Cada uno de estos procedimientos pueden ser desarrollados, adecuados e implementados en diferentes áreas y sectores, según las necesidades y alcances de cada uno.
 
-# Estructruación de bases de datos
+# Estructuración de bases de datos
 
-Como primer paso, antes de poder generar algún tipo de visualización o análisis, fue necesario estructurar e integrar los datos provistos por el equipo de BI, generando una base de datos única. 
+Como primer paso, antes de poder generar algún tipo de visualización o análisis, fue necesario estructurar e integrar los datos provistos por el equipo de BIM, generando una base de datos única. 
+
 ## Datos compartidos
+
 <br>
 <center><img src="input/img/lista_excel.png" width= 40% align = "center" /></center>
 <center><b>Imagen 1. Lista Excel</h3></b></center></b></center>
@@ -80,7 +82,7 @@ Paralelamente se identificaron y corrigieron errores de dedo como por ejemplo la
 
 Un segundo ejemplo de modificaciones es la variedad de nombres correspondientes a una misma institución microfinanciera. En la Imagen 4 se puede observar algunos ejemplos de nombres diversos que hacen referencia a una misma institución.
 
-Si bien estas variaciones pueden tener algún propósito, se modificaron los nombres con el fin de mantener consistencia en la base única,
+Si bien estas variaciones pueden tener algún propósito, se modificaron los nombres con el fin de mantener consistencia en la base única.
 
 <br>
 <center><img src="input/img/vars_base.png" width= 100% align = "center" /></center>
@@ -131,9 +133,9 @@ rio::import("output/data_set/social_quarterly.xlsx") %>%
 </center>
 
 <br>
-Al presionar el botón de desacarga es posible descargar los la base de datos consolidada en formato CSV.
+Al presionar el botón de descarga es posible descargar la base de datos consolidada en formato CSV.
 
-<br><br><br><br>
+<br><br>
 
 
 
@@ -141,7 +143,7 @@ Al presionar el botón de desacarga es posible descargar los la base de datos co
 
 A continuación se cuenta con un gráfico que muestra el valor del portafolio correspondiente a cada país. Estéticamente el gráfico no es ideal y esto se debe a que todos los países están activados, sin embargo el gráfico permite activar y desactivar países presionando sobre estos en la leyenda.
 
-Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor del portafolio y otra información correspondiente a ete reporte reporte.
+Al pasar el cursor por las lineas se puede ver la fecha del reporte, el valor del portafolio y otra información correspondiente a este reporte.
 
 
 <br>

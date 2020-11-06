@@ -301,7 +301,7 @@ div.tocify {
 <div id="revisión-y-estructuración" class="section level2">
 <h2>Revisión y estructuración</h2>
 <p>Al realizar una revisión del contenido de los datos, se identificaron hojas de cálculo que no contenían información relacionada a los datos sociales. El código generado integra el total de las hojas de cálculo excluyendo las hojas identificadas previamente.</p>
-<p>Para la integración de los datos y la información, únicamente se tomó en cuenta los datos crudos/principales. Esto quiere decir que se exluyeron fórmulas y tablas secundarias generadas a partir de los datos crudos/principales.</p>
+<p>Para la integración de los datos y la información, únicamente se tomó en cuenta los datos crudos/principales. Esto quiere decir que se excluyeron fórmulas y tablas secundarias generadas a partir de los datos crudos/principales.</p>
 </div>
 <div id="revisión-del-contenido" class="section level2">
 <h2>Revisión del contenido</h2>
@@ -335,6 +335,9 @@ div.tocify {
 <p><br></p>
 <p>Un segundo ejemplo de modificaciones es la variedad de nombres correspondientes a una misma institución microfinanciera. En la Imagen 4 se puede observar algunos ejemplos de nombres diversos que hacen referencia a una misma institución.</p>
 <p>Si bien estas variaciones pueden tener algún propósito, se modificaron los nombres con el fin de mantener consistencia en la base única.</p>
+</div>
+<div id="base-de-datos-única" class="section level2">
+<h2>Base de datos única</h2>
 <br>
 <center>
 <img src="input/img/vars_base.png" width= 100% align = "center" />
@@ -347,10 +350,7 @@ div.tocify {
 </b>
 </center>
 <p><br></p>
-</div>
-<div id="base-de-datos-única" class="section level2">
-<h2>Base de datos única</h2>
-<p>Finalmente se cuenta con una base de datos única general que está compuesta por 24 variables (columnas) y 740 filas (observaciones). De las 24 variables únicamente las variables “hoja” y “libro_excel” son ajenas a los datos originales. Estas dos variables fueron generadas como referencia a la hoja y libro de Excel de donde viene la información de cada fila.</p>
+<p>Finalmente se cuenta con una base de datos única general que está compuesta por 26 variables (columnas) y 740 filas (observaciones). De las 26 variables únicamente las variables “hoja”, “ref”, “libro_excel” y “mfis2” son ajenas a los datos originales. Estas dos variables fueron generadas como referencia a la hoja de Excel, número de referencia, libro de Excel y nombre de MFI modificado respectivamente.</p>
 <p>La base de datos general representa reportes que fueron generados a partir de mayo del 2015 hasta agosto del 2020 con información de cada institución financiera.</p>
 <p>Se debe tomar en cuenta que el proceso de estructuración, limpieza e integración de datos se lo realiza completamente a través del código. Esto permite poder replicar el ejercicio las veces que sea necesario con los archivos y datos originales que se desee, pudiendo así incluir, reducir o modificar los documentos originales.</p>
 </div>
